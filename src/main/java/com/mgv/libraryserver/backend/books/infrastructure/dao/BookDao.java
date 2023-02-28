@@ -15,10 +15,11 @@ public final class BookDao {
     private String editorial;
     private String bookId;
     private String internalId;
+    private String booking;
 
     public BookDao(){}
 
-    public BookDao(String uuid, String title, String author, String genre, String editorial, String bookId, String internalId) {
+    public BookDao(String uuid, String title, String author, String genre, String editorial, String bookId, String internalId, String booking) {
         this.uuid = uuid;
         this.title = title;
         this.author = author;
@@ -26,6 +27,7 @@ public final class BookDao {
         this.editorial = editorial;
         this.bookId = bookId;
         this.internalId = internalId;
+        this.booking = booking;
     }
 
     public String getUuid() {
@@ -82,6 +84,14 @@ public final class BookDao {
 
     public void setInternalId(String internalId) {
         this.internalId = internalId;
+    }
+
+    public String getBooking() {
+        return booking;
+    }
+
+    public void setBooking(String booking) {
+        this.booking = booking;
     }
 
     @Override

@@ -33,4 +33,25 @@ public class BookUpdater {
         book.update(title, author, genre, editorial, bookId, internalId);
         repository.save(book);
     }
+
+    public void createBooking(
+        BookUuid uuid,
+        BookBooking booking
+    ) throws BookNotExists{
+        Optional<Book> optBook = repository.searchById(uuid);
+        if(optBook.isEmpty()) throw new BookNotExists(uuid);
+        Book book = optBook.get();
+        book.createBooking(booking);
+        repository.save(book);
+    }
+
+    public void bookReturned(
+            BookUuid uuid
+    ) throws BookNotExists{
+        Optional<Book> optBook = repository.searchById(uuid);
+        if(optBook.isEmpty()) throw new BookNotExists(uuid);
+        Book book = optBook.get();
+        book.bookReturned();
+        repository.save(book);
+    }
 }

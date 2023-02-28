@@ -10,8 +10,11 @@ public final class Book {
     private BookEditorial editorial;
     private BookId bookId;
     private BookInternalId internalId;
+    private BookBooking booking;
 
-    public Book(BookUuid uuid, BookTitle title, BookAuthor author, BookGenre genre, BookEditorial editorial, BookId bookId, BookInternalId internalId) {
+    public Book(
+            BookUuid uuid, BookTitle title, BookAuthor author, BookGenre genre, BookEditorial editorial, BookId bookId, BookInternalId internalId, BookBooking booking
+    ) {
         this.uuid = uuid;
         this.title = title;
         this.author = author;
@@ -19,10 +22,11 @@ public final class Book {
         this.editorial = editorial;
         this.bookId = bookId;
         this.internalId = internalId;
+        this.booking = booking;
     }
 
     public static Book create(BookUuid uuid, BookTitle title, BookAuthor author, BookGenre genre, BookEditorial editorial, BookId bookId, BookInternalId internalId){
-        return new Book(uuid, title, author, genre, editorial, bookId, internalId);
+        return new Book(uuid, title, author, genre, editorial, bookId, internalId, null);
     }
 
     public void update(BookTitle title, BookAuthor author, BookGenre genre, BookEditorial editorial, BookId bookId, BookInternalId internalId){
@@ -32,6 +36,14 @@ public final class Book {
         this.editorial = editorial;
         this.bookId = bookId;
         this.internalId = internalId;
+    }
+
+    public void createBooking(BookBooking booking){
+        this.booking = booking;
+    }
+
+    public void bookReturned(){
+        this.booking = new BookBooking(null);
     }
 
     public BookUuid uuid() {
@@ -60,6 +72,10 @@ public final class Book {
 
     public BookInternalId internalId() {
         return internalId;
+    }
+
+    public BookBooking booking() {
+        return booking;
     }
 
     @Override

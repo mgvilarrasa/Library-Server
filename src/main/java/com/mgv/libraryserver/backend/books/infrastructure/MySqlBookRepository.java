@@ -31,7 +31,8 @@ public class MySqlBookRepository implements BookRepository {
                 book.genre().value(),
                 book.editorial().value(),
                 book.bookId().value(),
-                book.internalId().value()
+                book.internalId().value(),
+                book.booking().value()
         );
         repositoryDao.save(dao);
     }

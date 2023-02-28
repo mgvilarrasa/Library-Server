@@ -6,6 +6,4 @@ public final class BookUuid extends Identifier {
     public BookUuid(String value){
         super(value);
     }
-
-
 }

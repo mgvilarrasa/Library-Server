@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public final class BookMapper {
-    public BookDao book2Dao(String uuid, String title, String author, String genre, String editorial, String bookId, String internalId){
-        return new BookDao(uuid, title, author, genre, editorial, bookId, internalId);
+    public BookDao book2Dao(String uuid, String title, String author, String genre, String editorial, String bookId, String internalId, String booking){
+        return new BookDao(uuid, title, author, genre, editorial, bookId, internalId, booking);
     }
 
     public Book dao2Book(BookDao dao){
@@ -19,7 +19,8 @@ public final class BookMapper {
                 new BookGenre(dao.getGenre()),
                 new BookEditorial(dao.getEditorial()),
                 new BookId(dao.getBookId()),
-                new BookInternalId(dao.getInternalId())
+                new BookInternalId(dao.getInternalId()),
+                new BookBooking(dao.getBooking())
         );
     }
 }

@@ -1,5 +1,6 @@
 package com.mgv.libraryserver.backend.books.domain;
 
+import com.mgv.libraryserver.backend.books.domain.vo.BookBooking;
 import com.mgv.libraryserver.backend.books.domain.vo.BookUuid;
 
 import java.util.List;
