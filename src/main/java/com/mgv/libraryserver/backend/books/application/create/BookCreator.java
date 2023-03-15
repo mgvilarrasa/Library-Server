@@ -29,7 +29,7 @@ public final class BookCreator {
         if(repository.searchById(uuid).isPresent()){
             throw new BookAlreadyExists(uuid);
         }
-        Book book = Book.create(uuid, title, author, genre, editorial, bookId, internalId);
+        Book book = Book.create(uuid, title, author, genre, editorial, bookId, internalId, new BookBooking(null));
         repository.save(book);
     }
 }

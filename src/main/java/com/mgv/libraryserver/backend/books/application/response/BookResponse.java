@@ -11,8 +11,9 @@ public class BookResponse implements Response {
     private final String editorial;
     private final String bookId;
     private final String internalId;
+    private final String bookingId;
 
-    public BookResponse(String uuid, String title, String author, String genre, String editorial, String bookId, String internalId) {
+    public BookResponse(String uuid, String title, String author, String genre, String editorial, String bookId, String internalId, String bookingId) {
         this.uuid = uuid;
         this.title = title;
         this.author = author;
@@ -20,6 +21,7 @@ public class BookResponse implements Response {
         this.editorial = editorial;
         this.bookId = bookId;
         this.internalId = internalId;
+        this.bookingId = bookingId;
     }
 
     public static BookResponse fromAggregate(Book book){
@@ -30,7 +32,8 @@ public class BookResponse implements Response {
                 book.genre().value(),
                 book.editorial().value(),
                 book.bookId().value(),
-                book.internalId().value()
+                book.internalId().value(),
+                book.booking().value()
         );
     }
 
@@ -60,5 +63,9 @@ public class BookResponse implements Response {
 
     public String getInternalId() {
         return internalId;
+    }
+
+    public String getBookingId() {
+        return bookingId;
     }
 }

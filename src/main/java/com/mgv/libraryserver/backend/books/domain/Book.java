@@ -25,8 +25,10 @@ public final class Book {
         this.booking = booking;
     }
 
-    public static Book create(BookUuid uuid, BookTitle title, BookAuthor author, BookGenre genre, BookEditorial editorial, BookId bookId, BookInternalId internalId){
-        return new Book(uuid, title, author, genre, editorial, bookId, internalId, null);
+    public static Book create(
+            BookUuid uuid, BookTitle title, BookAuthor author, BookGenre genre, BookEditorial editorial, BookId bookId, BookInternalId internalId, BookBooking booking
+    ){
+        return new Book(uuid, title, author, genre, editorial, bookId, internalId, booking);
     }
 
     public void update(BookTitle title, BookAuthor author, BookGenre genre, BookEditorial editorial, BookId bookId, BookInternalId internalId){
