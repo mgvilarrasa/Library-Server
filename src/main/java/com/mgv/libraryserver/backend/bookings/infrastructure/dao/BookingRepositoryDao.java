@@ -15,12 +15,12 @@ public interface BookingRepositoryDao extends JpaRepository<BookingDao, String> 
     Optional<BookingDao> findBooked(String bookId);
     @Query(value = "SELECT * FROM bookings WHERE user_id = ?1", nativeQuery = true)
     List<BookingDao> findByUser(String userId);
-    @Query(value = "SELECT * FROM bookings WHERE return_date IS NULL OR return_date = ''", nativeQuery = true)
+    @Query(value = "SELECT * FROM bookings WHERE return_date IS NULL OR return_date = '' ORDER BY end_date ASC", nativeQuery = true)
     List<BookingDao> findByNotReturned();
-    @Query(value = "SELECT * FROM bookings WHERE user_id = ?1 AND (return_date IS NULL OR return_date = '')", nativeQuery = true)
+    @Query(value = "SELECT * FROM bookings WHERE user_id = ?1 AND (return_date IS NULL OR return_date = '') ORDER BY end_date ASC", nativeQuery = true)
     List<BookingDao> findPendingByUser(String userId);
-    @Query(value = "SELECT * FROM bookings ORDER BY return_date ASC", nativeQuery = true)
+    @Query(value = "SELECT * FROM bookings ORDER BY return_date ASC, end_date ASC", nativeQuery = true)
     List<BookingDao> findAllBookings();
-    @Query(value = "SELECT * FROM bookings WHERE end_date < ?1 AND (return_date IS NOT NULL OR return_date != '')", nativeQuery = true)
+    @Query(value = "SELECT * FROM bookings WHERE end_date < ?1 AND (return_date IS NULL OR return_date = '')", nativeQuery = true)
     List<BookingDao> findDelayed(String currentDate);
 }
