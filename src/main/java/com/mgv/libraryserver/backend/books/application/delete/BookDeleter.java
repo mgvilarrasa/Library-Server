@@ -25,4 +25,8 @@ public class BookDeleter {
 
         repository.delete(optBook.get().uuid());
     }
+
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }

@@ -12,4 +12,5 @@ public interface UserRepository {
     Optional<User> searchByEmail(UserEmail email);
     List<User> findAll();
     void delete(UserUuid uuid);
+    void deleteAll();
 }

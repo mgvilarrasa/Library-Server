@@ -52,4 +52,9 @@ public class MySqlBookRepository implements BookRepository {
     public void delete(BookUuid uuid) {
         repositoryDao.deleteById(uuid.value());
     }
+
+    @Override
+    public void deleteAll(){
+        repositoryDao.deleteAll();
+    }
 }

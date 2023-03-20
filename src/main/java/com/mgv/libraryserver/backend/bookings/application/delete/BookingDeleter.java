@@ -27,4 +27,8 @@ public class BookingDeleter {
         if(optBooking.get().returnDate().value() == null) throw new BookingNotAllowedDelete();
         repository.delete(uuid);
     }
+
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }

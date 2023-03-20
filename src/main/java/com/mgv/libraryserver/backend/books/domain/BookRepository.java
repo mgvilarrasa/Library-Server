@@ -11,4 +11,5 @@ public interface BookRepository {
     Optional<Book> searchById(BookUuid uuid);
     List<Book> findAll();
     void delete(BookUuid uuid);
+    void deleteAll();
 }

@@ -52,4 +52,9 @@ public class MySqlUserRepository implements UserRepository {
     public void delete(UserUuid uuid) {
         repositoryDao.deleteById(uuid.value());
     }
+
+    @Override
+    public void deleteAll(){
+        repositoryDao.deleteAll();
+    }
 }

@@ -24,4 +24,8 @@ public final class UserDeleter {
 
         repository.delete(optUser.get().uuid());
     }
+
+    public void deleteAll() {
+        repository.deleteAll();
+    }
 }

@@ -18,4 +18,5 @@ public interface BookingRepository {
     List<Booking> findPendingByUser(BookingUserId userId);
     List<Booking> findDelayed(String currentDate);
     void delete(BookingUuid uuid);
+    void deleteAll();
 }

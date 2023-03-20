@@ -88,5 +88,8 @@ public class MySqlBookingRepository implements BookingRepository {
         repositoryDao.deleteById(uuid.value());
     }
 
-
+    @Override
+    public void deleteAll(){
+        repositoryDao.deleteAll();
+    }
 }
